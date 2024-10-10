@@ -7,6 +7,6 @@ function toggleCaption(button) {
         button.textContent = "less...";
     } else {
         caption.style.minHeight = "60px"; // Collapses back to initial height
-        button.textContent = "more...";
+        button.textContent = "...more";
     }
 }
