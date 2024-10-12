@@ -70,6 +70,43 @@ exitButton.addEventListener("click", exitOverlay);
 function exitOverlay(event){
     overlayContainer.style.display = 'none';
 }
-// function exitOverlay(){
-//     overlayContainer.style.display = 'none';
+
+
+// liking and unliking
+// const emptyHeart = document.getElementById("empty-heart-icon");
+// emptyHeart.addEventListener("click", likePost);
+
+// function likePost(event){
+//     emptyHeart.style.display='none';
+//     filledHeart.style.display='grid';
 // }
+
+// const filledHeart = document.getElementById("filled-heart-icon");
+// filledHeart.addEventListener("click", unlikePost);
+
+// function unlikePost(event){
+//     filledHeart.style.display='none';
+//     emptyHeart.style.display='grid';
+// }
+
+// Select all heart icons
+const heartIcons = document.querySelectorAll(".heart-icon");
+
+heartIcons.forEach(heart => {
+    heart.addEventListener("click", toggleHeart);
+});
+
+function toggleHeart(event) {
+    const emptyHeart = event.currentTarget.classList.contains('empty-heart');
+    const filledHeart = event.currentTarget.classList.contains('filled-heart');
+
+    if (emptyHeart) {
+        event.currentTarget.style.display = 'none'; // Hide the empty heart
+        // Show the corresponding filled heart
+        event.currentTarget.nextElementSibling.style.display = 'grid';
+    } else if (filledHeart) {
+        event.currentTarget.style.display = 'none'; // Hide the filled heart
+        // Show the corresponding empty heart
+        event.currentTarget.previousElementSibling.style.display = 'grid';
+    }
+}
